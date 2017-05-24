@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Dotfiles installer
+
+echo "Installing Dotfiles into your home: $HOME"
+echo "Hit Ctrl+C if you don't know what you're doing!"
+echo "Press any key to Continue.."
+read
+
+# Setup Symlinks
+source ~/dotfiles/bin/symlinks
+for dotfile in "${!symlinks[@]}"
+do
+  # backup existing file
+  tstamp=`date +"%Y%m%d%H%M%S"`
+  eval mv -f "${dotfile}" "${dotfile}.bak.${tstamp}" 2>/dev/null
+  # create new symlink
+  eval ln -nsf ${symlinks[$dotfile]} $dotfile
+  echo "Setting up $dotfile"
+done
+unset symlinks # clear the array
+exit
+
+# source .bashrc so everything takes effect
+source ~/.bashrc
+
+echo "Fix your name and email in ~/dotfiles/git/gitconfig"
+

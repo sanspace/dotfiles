@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Symlinks Configuration
+
+declare -A symlinks
+
+symlinks=(
+  ["~/.bashrc"]="~/dotfiles/bash/bashrc"
+  ["~/.inputrc"]="~/dotfiles/bash/inputrc"
+  ["~/.profile"]="~/dotfiles/ksh/profile"
+  ["~/.vimrc"]="~/dotfiles/vim/vimrc"
+  ["~/.gitconfig"]="~/dotfiles/git/gitconfig"
+  ["~/.plan"]="~/dotfiles/ksh/plan"
+)
+

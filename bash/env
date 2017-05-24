@@ -1,0 +1,6 @@
+TMOUT=0
+export HISTCONTROL=ignoredups
+
+stty -ignbrk isig echoctl
+set -o vi
+

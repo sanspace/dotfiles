@@ -1,0 +1,10 @@
+
+stty -ignbrk isig echoctl
+
+clear
+echo "\033[0;33m"
+cat .plan
+echo "\033[0m"
+
+umask 007 # Don't peek into my $HOME!!
+

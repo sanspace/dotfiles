@@ -1,0 +1,48 @@
+
+# For Git
+source ~/dotfiles/git/git-completion.bash
+source ~/dotfiles/git/git-prompt.bash
+
+# Aliases
+source ~/dotfiles/bash/aliases
+
+# Functions
+source ~/dotfiles/bash/functions.bash
+
+# For Colors
+source ~/dotfiles/color/colors
+eval "$(dircolors ~/dotfiles/color/dircolors)";
+
+# Environment Variables
+source ~/dotfiles/bash/env
+
+prompt_command () {
+
+  RC=$?
+  if [ $RC -eq 0 ]; then
+    PREFIX="\[\e[01;32m\]:)\[\e[0m\]"
+  else
+    PREFIX="\[\e[0;31m\]:(\[\e[0m\] $RC"
+  fi
+
+  if [ "$TERM" = "xterm" ]; then
+    TITLE_BAR="\[\e]2;\u@\h:\w \a\]"
+  else
+    TITLE_BAR=""
+  fi
+
+  #export PS1="${TITLE_BAR}${PREFIX} \[\e[38;5;81m\]\u\[\e[38;5;141m\]@\[\e[38;5;154m\]\h\[\e[38;5;186m\]\$(__git_ps1 \" (%s)\") \[\e[01;34m\]\w \[\e[38;5;141m\]\$\[\e[0m\]\n"
+  export PS1="${TITLE_BAR}${PREFIX} \u@\h\[\e[0;33m\]\$(__git_ps1 \" (%s)\") \[\e[01;34m\]\w \[\e[38;141m\]\$\[\e[0m\]\n"
+}
+
+
+PROMPT_COMMAND=prompt_command
+
+# Shell Options
+shopt -s autocd
+shopt -s cdspell
+shopt -s dirspell
+shopt -s checkjobs
+shopt -s histappend
+shopt -s no_empty_cmd_completion
+

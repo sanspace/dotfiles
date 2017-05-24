@@ -1,0 +1,22 @@
+set history=500
+set autoread
+set ruler
+set cmdheight=2
+syntax enable
+set background=dark
+set encoding=utf8
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set smartindent
+
+set pastetoggle=<F5>
+
+
+set ai
+set si
+set wrap
+set nu
+
+noremap % v%

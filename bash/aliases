@@ -1,0 +1,22 @@
+# For listing
+alias ls='ls --color=auto -hF'
+alias l='ls'
+alias ll='ls -lrt'
+alias lla='ls -lrta'
+
+# For searching
+alias grep='grep --color=auto --binary-files=without-match --devices=skip -s '
+alias egrep='egrep --color=auto --binary-files=without-match --devices=skip -s '
+alias fn='grep -rn'
+
+# For switching directories
+alias chdir='cd'
+alias dirs='dirs -v'
+
+# For editing
+alias vi='vim'
+
+# For History
+alias r='fc -e -'
+alias h='history'
+
